@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "graphick"
+
+abort "Usage: graphick <graphick file>" if ARGV.length == 0
+
+puts "Graphick using #{ARGV[0]}"
+
+Graphick.from_file(ARGV[0])
+

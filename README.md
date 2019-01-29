@@ -2,6 +2,8 @@
 
 Graphick (a bad play on words of 'graph' and 'quick') is a utility to make generating and maintaining performance analysis graphs for applications much simpler.
 
+There is a runtime dependency on `imagemagick`, so ensure that's installed
+
 ## Installation
 
 Add this line to your application's Gemfile:
