@@ -65,7 +65,75 @@ module Graphick
 
 			# Now wrangle the results into the correct format for rendering a graph, depending on if a series is defined
 			# TODO: Support series
-			results.each_pair {|k, v| [k, v] }.flatten
+			{
+					:results => [results.each_pair {|k, v| [k, v] }.flatten],
+					:suggested_x_scale => suggest_axis_scale(results.keys.map {|x| x[0] }),
+      		:suggested_y_scale => suggest_axis_scale(results.values)
+			}
+		end
+
+		# Makes a best-effort suggestion for axis scaling
+		# Up to the filtering candidate_arrays, this algorithm is heavily based on Austin Clemens' algorithm here:
+		# http://austinclemens.com/blog/2016/01/09/an-algorithm-for-creating-a-graphs-axes/
+		def suggest_axis_scale(values)
+			pp values
+			min = values.min
+			max = values.max
+
+      zero = min <= 0 && max >= 0
+      range = max - min
+
+			good_steps = [0.1, 0.2, 0.5, 1, 0.15, 0.25, 0.75]
+			ticks = 10
+
+			steps = range / (ticks - 1)
+      digits = 0
+			if steps >= 1
+				digits = steps.round.to_s.length
+			else
+				places=steps.to_s.split( '.')[1]
+				first_place=0
+
+				places.length.times do |i|
+					(first_place = i) and break if places[i] != '0'
+        end
+        digits = -first_place
+			end
+
+			candidate_steps=[]
+			good_steps.each do |step|
+				candidate_steps.push step * 10 ** digits
+				candidate_steps.push step * 10 ** digits - 1
+				candidate_steps.push step * 10 ** digits + 1
+			end
+			candidate_steps.reject! { |x| x == 0 }.uniq!
+
+			candidate_arrays = []
+			candidate_steps.each do |steps|
+				step_array = []
+        if zero
+          min_steps = (min.abs / steps).ceil
+          step_array.push -min_steps * steps
+        else
+          step_array.push (min / steps).floor * steps
+        end
+
+        while step_array[-1] < max
+            step_array.push(step_array[-1] + steps)
+        end
+
+        next if step_array.length >= 11 or step_array.length < 4
+        candidate_arrays.push step_array
+      end
+
+			# Special case for a small number of fixed-space integers
+			if values.all? {|x| x == x.floor} && values.each_cons(2).map { |e| e[1] - e[0] }.uniq.length == 1
+				puts "EQUAL SPACED INTEGERS"
+        # TODO: Try to select an appropriate candidate_array
+			end
+
+      # TODO: Choose a good candidate_arrays - currently this whole thing is pointless
+			candidate_arrays[0][1] - candidate_arrays[0][0]
 		end
 
 		def to_s

@@ -12,24 +12,28 @@ module Graphick
 
 	def self.generate(graphick_str)
 		sources = Graphick::Parser.new(graphick_str).parse()
-		puts sources
 
-		g = SVG::Graph::Plot.new({
-			:width => 640,
-			:height => 480,
-			:graph_title => sources[0].title,
-			:show_graph_title => true,
-			:key => sources.length > 1,
-		})
+		sources.map(&:acquire_data).each.with_index do |data, i|
+			g = SVG::Graph::Plot.new({
+		    :width => 640,
+				:height => 480,
+				:graph_title => sources[i].title,
+				:show_graph_title => true,
+				:key => data[:results].length > 1,
+				:scale_x_integers => true,
+				:scale_x_divisions => data[:suggested_x_scale],
+				:scale_y_divisions => data[:suggested_y_scale],
+				:show_x_guidelines => false,
+      })
 
-		sources.map(&:acquire_data).each do |data|
+			# TODO: Support series
       g.add_data({
-        :data => data,
+        :data => data[:results][0],
         :title => 'Test data'
       })
-		end
 
-		File.open('graph.svg', 'w') {|f| f.write(g.burn_svg_only)}
+			File.open('graph.svg', 'w') {|f| f.write(g.burn_svg_only)}
+		end
 
 	end
 
