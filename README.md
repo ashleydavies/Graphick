@@ -56,7 +56,6 @@ filter    ::= not <filter>
 values    ::= sequence NUMBER to NUMBER
             | vals (VALUE )+
 selector  ::= column NUMBER separator SEPARATOR
-
 ```
 
 ## Installation
