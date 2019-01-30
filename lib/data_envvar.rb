@@ -1,5 +1,6 @@
 module Graphick
 	class DataEnvVar
+
 		attr_accessor :is_series
 
 		def initialize(parameter_name, values, is_series)
@@ -18,5 +19,12 @@ module Graphick
 			raise 'Bad index' unless index < @values.length
 			ENV[@parameter_name] = @values[index]
 		end
+
+		def to_s
+			series = ''
+			series = '[SERIES], ' if @is_series
+			"EnvVar<#{series}#{@parameter_name}, [#{@values.join ', '}]>"
+		end
+
 	end
 end

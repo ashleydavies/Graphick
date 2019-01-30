@@ -8,6 +8,10 @@ module Graphick
 			@is_series = is_series
 			@command = command
 		end
+
+		def cleanup()
+
+		end
 		
 		def bind_value_index(index)
 			raise 'Bad index' unless index < @values.length

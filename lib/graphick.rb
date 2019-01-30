@@ -11,8 +11,7 @@ module Graphick
 	end
 
 	def self.generate(graphick_str)
-
-		Graphick::Parser.new(graphick_str).parse()
+		sources = Graphick::Parser.new(graphick_str).parse()
 
 		g = SVG::Graph::Line.new({
 			:width => 640,
