@@ -45,6 +45,8 @@ data output column 2 separator ,
 More formally, the syntax is as follows
 
 ```
+command   ::= command COMMAND TO RUN
+title     ::= title TITLE OF GRAPH
 filtering ::= filtering <selector> <filter>
 varying   ::= varying (envvar VARIABLE_NAME | $variable) <values>
 data      ::= data output <selector>
