@@ -1,0 +1,5 @@
+command echo "6 * $num" | bc
+title Multiples of six
+
+varying envvar num sequence 1 to 10
+data output
