@@ -7,7 +7,9 @@ module Graphick
   class Error < StandardError; end
 
 	def self.from_file(path)
-		return self.generate(File.read(path))
+		contents = File.read(path)
+		Dir.chdir File.dirname(path)
+		return self.generate(contents)
 	end
 
 	def self.generate(graphick_str)
@@ -15,7 +17,7 @@ module Graphick
 
 		sources.map(&:acquire_data).each.with_index do |data, i|
 			g = SVG::Graph::Plot.new({
-		    :width => 640,
+		    :width => 660,
 				:height => 480,
 				:graph_title => sources[i].title,
 				:show_graph_title => true,
@@ -24,13 +26,19 @@ module Graphick
 				:scale_x_divisions => data[:suggested_x_scale],
 				:scale_y_divisions => data[:suggested_y_scale],
 				:show_x_guidelines => false,
+        :show_data_values => false,
       })
 
-			# TODO: Support series
-      g.add_data({
-        :data => data[:results][0],
-        :title => 'Test data'
-      })
+			data[:results].each do |results|
+        if results.any? {|x| x.kind_of? Array}
+          g.add_data({
+            :data => results[1],
+            :title => results[0][0].to_s
+          })
+        else
+          g.add_data({:data => results})
+        end
+			end
 
 			File.open('graph.svg', 'w') {|f| f.write(g.burn_svg_only)}
 		end

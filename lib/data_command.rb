@@ -60,15 +60,34 @@ module Graphick
 				  params[idx] = @variables[idx].bind_value_index(indexes[idx])
 				end
 
-				results[params] = `#{@command}`.chomp.to_i
+				output = `#{@command}`.chomp
+        selections = []
+        output.split(/\n/).each do |line|
+          selections.push(@data_selectors.map do |selector|
+            selector.select(line).to_f
+          end)
+				end
+
+				results[params] = selections
+			end
+
+			# Varying series on output is tricky as it requires a wrangling of the data structure
+			if series_count > 0
+				allXValues = results.values.flatten(1).map {|e| e[0]}
+				allYValues = results.values.flatten(1).map {|e| e[1]}
+        return {
+						:results => results,
+						:suggested_x_scale => suggest_axis_scale(allXValues),
+						:suggested_y_scale => suggest_axis_scale(allYValues),
+				}
 			end
 
 			# Now wrangle the results into the correct format for rendering a graph, depending on if a series is defined
 			# TODO: Support series
 			{
-					:results => [results.each_pair {|k, v| [k, v] }.flatten],
-					:suggested_x_scale => suggest_axis_scale(results.keys.map {|x| x[0] }),
-      		:suggested_y_scale => suggest_axis_scale(results.values)
+					:results => [results.flatten.flatten],
+					:suggested_x_scale => suggest_axis_scale(results.keys.map { |x| x[0] }),
+      		:suggested_y_scale => suggest_axis_scale(results.values.map { |x| x[0] }.flatten)
 			}
 		end
 
@@ -81,6 +100,8 @@ module Graphick
 
       zero = min <= 0 && max >= 0
       range = max - min
+
+			return 1 if range == 0
 
 			good_steps = [0.1, 0.2, 0.5, 1, 0.15, 0.25, 0.75]
 			ticks = 10
@@ -104,8 +125,9 @@ module Graphick
 				candidate_steps.push step * 10 ** digits
 				candidate_steps.push step * 10 ** digits - 1
 				candidate_steps.push step * 10 ** digits + 1
-			end
-			candidate_steps.reject! { |x| x == 0 }.uniq!
+      end
+			candidate_steps.reject! { |x| x == 0 }
+      candidate_steps.uniq!
 
 			candidate_arrays = []
 			candidate_steps.each do |steps|

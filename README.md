@@ -16,7 +16,7 @@ varying envvar num sequence 1 to 10
 data output
 ```
 
-![Rendering of above graph definition](readme_example_graph.svg)
+![Rendering of above graph definition](examples/readme_example_graph.svg)
 
 Every graphick file must have a `command` line. After the word `command` should follow the command that generates the data you are interested in.
 

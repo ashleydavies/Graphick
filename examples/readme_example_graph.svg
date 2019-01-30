@@ -1,0 +1,336 @@
+<svg width='660' height='480' viewBox='0 0 660 480' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:a3='http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/' a3:scriptImplementation='Adobe'>
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+<!-- Created with SVG::Graph -->
+<!-- SVG::Graph by Sean E. Russell -->
+<!-- Losely based on SVG::TT::Graph for Perl by Leo Lapworth & Stephan Morgan -->
+<!-- //////////////////////////////////////////////////////////////////-->
+<defs>
+<style type='text/css'>
+<![CDATA[/* Copy from here for external style sheet */
+.svgBackground{
+  fill:#ffffff;
+}
+.graphBackground{
+  fill:#f0f0f0;
+}
+
+/* graphs titles */
+.mainTitle{
+  text-anchor: middle;
+  fill: #000000;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+.subTitle{
+  text-anchor: middle;
+  fill: #999999;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.axis{
+  stroke: #000000;
+  stroke-width: 1px;
+}
+
+.guideLines{
+  stroke: #666666;
+  stroke-width: 1px;
+  stroke-dasharray: 5 5;
+}
+
+.xAxisLabels{
+  text-anchor: middle;
+  fill: #000000;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.yAxisLabels{
+  text-anchor: end;
+  fill: #000000;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.xAxisTitle{
+  text-anchor: middle;
+  fill: #ff0000;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.yAxisTitle{
+  fill: #ff0000;
+  text-anchor: middle;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.dataPointLabel{
+  fill: #000000;
+  text-anchor:middle;
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+
+.staggerGuideLine{
+  fill: none;
+  stroke: #000000;
+  stroke-width: 0.5px;
+}
+
+/* default line styles */
+.line1{
+	fill: none;
+	stroke: #ff0000;
+	stroke-width: 1px;	
+}
+.line2{
+	fill: none;
+	stroke: #0000ff;
+	stroke-width: 1px;	
+}
+.line3{
+	fill: none;
+	stroke: #00ff00;
+	stroke-width: 1px;	
+}
+.line4{
+	fill: none;
+	stroke: #ffcc00;
+	stroke-width: 1px;	
+}
+.line5{
+	fill: none;
+	stroke: #00ccff;
+	stroke-width: 1px;	
+}
+.line6{
+	fill: none;
+	stroke: #ff00ff;
+	stroke-width: 1px;	
+}
+.line7{
+	fill: none;
+	stroke: #00ffff;
+	stroke-width: 1px;	
+}
+.line8{
+	fill: none;
+	stroke: #ffff00;
+	stroke-width: 1px;	
+}
+.line9{
+	fill: none;
+	stroke: #ccc6666;
+	stroke-width: 1px;	
+}
+.line10{
+	fill: none;
+	stroke: #663399;
+	stroke-width: 1px;	
+}
+.line11{
+	fill: none;
+	stroke: #339900;
+	stroke-width: 1px;	
+}
+.line12{
+	fill: none;
+	stroke: #9966FF;
+	stroke-width: 1px;	
+}
+/* default fill styles */
+.fill1{
+	fill: #cc0000;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill2{
+	fill: #0000cc;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill3{
+	fill: #00cc00;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill4{
+	fill: #ffcc00;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill5{
+	fill: #00ccff;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill6{
+	fill: #ff00ff;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill7{
+	fill: #00ffff;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill8{
+	fill: #ffff00;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill9{
+	fill: #cc6666;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill10{
+	fill: #663399;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill11{
+	fill: #339900;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+.fill12{
+	fill: #9966FF;
+	fill-opacity: 0.2;
+	stroke: none;
+}
+/* default line styles */
+.key1,.dataPoint1{
+	fill: #ff0000;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key2,.dataPoint2{
+	fill: #0000ff;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key3,.dataPoint3{
+	fill: #00ff00;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key4,.dataPoint4{
+	fill: #ffcc00;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key5,.dataPoint5{
+	fill: #00ccff;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key6,.dataPoint6{
+	fill: #ff00ff;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key7,.dataPoint7{
+	fill: #00ffff;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key8,.dataPoint8{
+	fill: #ffff00;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key9,.dataPoint9{
+	fill: #cc6666;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key10,.dataPoint10{
+	fill: #663399;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key11,.dataPoint11{
+	fill: #339900;
+	stroke: none;
+	stroke-width: 1px;	
+}
+.key12,.dataPoint12{
+	fill: #9966FF;
+	stroke: none;
+	stroke-width: 1px;	
+}
+
+
+.keyText{
+  fill: #000000;
+  text-anchor:start;
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  font-weight: normal;
+}
+/* End copy for external style sheet */
+]]>
+</style>
+</defs>
+<!-- include default stylesheet if none specified -->
+<!--SVG Background-->
+<rect width='660' height='480' x='0' y='0' class='svgBackground'/>
+<g transform='translate( 43.0 26 )'>
+<rect x='0' y='0' width='602.6' height='432' class='graphBackground'/>
+<path d='M 0 432 h602.6' class='axis' id='yAxis'/>
+<path d='M 0.0 0 v432' class='axis' id='xAxis'/>
+<text class='xAxisLabels' x='0.0' y='447' style='text-anchor: middle'>1.00</text>
+<text class='xAxisLabels' x='66.95555555555556' y='447' style='text-anchor: middle'>2.00</text>
+<text class='xAxisLabels' x='133.91111111111113' y='447' style='text-anchor: middle'>3.00</text>
+<text class='xAxisLabels' x='200.86666666666667' y='447' style='text-anchor: middle'>4.00</text>
+<text class='xAxisLabels' x='267.82222222222225' y='447' style='text-anchor: middle'>5.00</text>
+<text class='xAxisLabels' x='334.7777777777778' y='447' style='text-anchor: middle'>6.00</text>
+<text class='xAxisLabels' x='401.73333333333335' y='447' style='text-anchor: middle'>7.00</text>
+<text class='xAxisLabels' x='468.6888888888889' y='447' style='text-anchor: middle'>8.00</text>
+<text class='xAxisLabels' x='535.6444444444445' y='447' style='text-anchor: middle'>9.00</text>
+<text class='xAxisLabels' x='602.6' y='447' style='text-anchor: middle'>10.00</text>
+<text x='-3' y='436.0' class='yAxisLabels' style='text-anchor: end'>2.00</text>
+<text x='-3' y='392.8' class='yAxisLabels' style='text-anchor: end'>4.00</text>
+<path d='M0 388.8 h602.6' class='guideLines'/>
+<text x='-3' y='349.6' class='yAxisLabels' style='text-anchor: end'>6.00</text>
+<path d='M0 345.6 h602.6' class='guideLines'/>
+<text x='-3' y='306.4' class='yAxisLabels' style='text-anchor: end'>8.00</text>
+<path d='M0 302.4 h602.6' class='guideLines'/>
+<text x='-3' y='263.2' class='yAxisLabels' style='text-anchor: end'>10.00</text>
+<path d='M0 259.2 h602.6' class='guideLines'/>
+<text x='-3' y='220.0' class='yAxisLabels' style='text-anchor: end'>12.00</text>
+<path d='M0 216.0 h602.6' class='guideLines'/>
+<text x='-3' y='176.79999999999995' class='yAxisLabels' style='text-anchor: end'>14.00</text>
+<path d='M0 172.79999999999995 h602.6' class='guideLines'/>
+<text x='-3' y='133.59999999999997' class='yAxisLabels' style='text-anchor: end'>16.00</text>
+<path d='M0 129.59999999999997 h602.6' class='guideLines'/>
+<text x='-3' y='90.39999999999998' class='yAxisLabels' style='text-anchor: end'>18.00</text>
+<path d='M0 86.39999999999998 h602.6' class='guideLines'/>
+<text x='-3' y='47.19999999999999' class='yAxisLabels' style='text-anchor: end'>20.00</text>
+<path d='M0 43.19999999999999 h602.6' class='guideLines'/>
+<path d='M0.0 432.0 L0.0 432.0 66.95555555555556 388.8 133.91111111111113 345.6 200.86666666666667 302.4 267.82222222222225 259.2 334.7777777777778 216.0 401.73333333333335 172.79999999999995 468.6888888888889 129.59999999999997 535.6444444444445 86.39999999999998 602.6 43.19999999999999 ' class='line1'/>
+<circle cx='0.0' cy='432.0' r='2.5' class='dataPoint1'/>
+<circle cx='66.95555555555556' cy='388.8' r='2.5' class='dataPoint1'/>
+<circle cx='133.91111111111113' cy='345.6' r='2.5' class='dataPoint1'/>
+<circle cx='200.86666666666667' cy='302.4' r='2.5' class='dataPoint1'/>
+<circle cx='267.82222222222225' cy='259.2' r='2.5' class='dataPoint1'/>
+<circle cx='334.7777777777778' cy='216.0' r='2.5' class='dataPoint1'/>
+<circle cx='401.73333333333335' cy='172.79999999999995' r='2.5' class='dataPoint1'/>
+<circle cx='468.6888888888889' cy='129.59999999999997' r='2.5' class='dataPoint1'/>
+<circle cx='535.6444444444445' cy='86.39999999999998' r='2.5' class='dataPoint1'/>
+<circle cx='602.6' cy='43.19999999999999' r='2.5' class='dataPoint1'/>
+<g/>
+</g>
+<text x='330' y='16' class='mainTitle'>Graph of multiples of 2</text>
+</svg>

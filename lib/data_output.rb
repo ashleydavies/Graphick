@@ -7,6 +7,10 @@ module Graphick
       @is_series = is_series
     end
 
+    def select(input)
+      @selector.select(input)
+    end
+
     def cleanup() end
 
     def to_s

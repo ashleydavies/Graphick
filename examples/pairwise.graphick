@@ -1,0 +1,6 @@
+command ./pairwise.rb $num
+title Multiplication Tables
+
+varying series envvar num sequence 10 to 15
+data output column 1 separator ,
+data output column 2 separator ,

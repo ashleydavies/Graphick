@@ -6,7 +6,7 @@ class ColumnSelector
   end
 
   def select(input)
-    input.split(@separator)[@column]
+    input.split(@separator)[@column - 1].strip
   end
 
   def to_s
