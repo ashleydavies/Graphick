@@ -1,17 +1,17 @@
 module Graphick
-	class DataFilterIn
+  class DataFilterIn
 
-		def initialize(values)
-			@values = values
-		end
-
-		def filter(input)
-			@values.contains? input
+    def initialize(values)
+      @values = values
     end
 
-		def to_s
-			"FilterIn<'#{@values.join ', '}'>"
-		end
-		
-	end
+    def filter(input)
+      @values.include? input
+    end
+
+    def to_s
+      "FilterIn<'#{@values.join ', '}'>"
+    end
+
+  end
 end

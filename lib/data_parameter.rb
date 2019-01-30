@@ -1,25 +1,25 @@
 module Graphick
-	class DataParameter
-		attr_accessor :parameter_name, :values, :is_series
+  class DataParameter
+    attr_accessor :parameter_name, :values, :is_series
 
-		def initialize(command, parameter_name, values, is_series)
-			@parameter_name = parameter_name
-			@values = values
-			@is_series = is_series
-			@command = command
-		end
+    def initialize(command, parameter_name, values, is_series)
+      @parameter_name = parameter_name
+      @values = values
+      @is_series = is_series
+      @command = command
+    end
 
-		def cleanup()
+    def cleanup()
 
-		end
+    end
 
-		def num_values
-			@values.length
-		end
+    def num_values
+      @values.length
+    end
 
-		def bind_value_index(index)
-			raise 'Bad index' unless index < @values.length
-			@command.bind_param(@parameter_name, @values[value])
-		end
-	end
+    def bind_value_index(index)
+      raise 'Bad index' unless index < @values.length
+      @command.bind_param(@parameter_name, @values[value])
+    end
+  end
 end
