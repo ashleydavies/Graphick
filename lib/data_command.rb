@@ -76,7 +76,6 @@ module Graphick
 		# Up to the filtering candidate_arrays, this algorithm is heavily based on Austin Clemens' algorithm here:
 		# http://austinclemens.com/blog/2016/01/09/an-algorithm-for-creating-a-graphs-axes/
 		def suggest_axis_scale(values)
-			pp values
 			min = values.min
 			max = values.max
 
@@ -128,7 +127,6 @@ module Graphick
 
 			# Special case for a small number of fixed-space integers
 			if values.all? {|x| x == x.floor} && values.each_cons(2).map { |e| e[1] - e[0] }.uniq.length == 1
-				puts "EQUAL SPACED INTEGERS"
         # TODO: Try to select an appropriate candidate_array
 			end
 
