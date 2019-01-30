@@ -6,7 +6,14 @@ It has a straightforward DSL for defining data sources and data filters, and cac
 
 ## Example
 
+The following generates a graph of 1..10 to the corresponding multiple of 6.
 
+```
+command echo "6 * $num " | bc
+
+varying $num sequence 1 to 10
+data output all
+```
 
 ## Installation
 
