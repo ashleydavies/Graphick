@@ -1,0 +1,5 @@
+command echo " $example * 2 " | bc
+
+varying envvar example sequence 1 to 10
+
+data output

@@ -15,9 +15,14 @@ module Graphick
 			ENV[@parameter_name] = @initial_value
 		end
 
+		def num_values
+			@values.length
+		end
+
 		def bind_value_index(index)
 			raise 'Bad index' unless index < @values.length
-			ENV[@parameter_name] = @values[index]
+			ENV[@parameter_name] = @values[index].to_s
+			@values[index]
 		end
 
 		def to_s

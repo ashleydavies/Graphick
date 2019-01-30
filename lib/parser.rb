@@ -6,6 +6,7 @@ require 'data_filter_not'
 require 'data_filter_selector'
 require 'data_output'
 require 'column_selector'
+require 'everything_selector'
 
 module Graphick
   class Parser
@@ -44,7 +45,6 @@ module Graphick
       when 'filtering'
         data_command.add_filter(parse_filter(rest))
       when 'data'
-        puts "Processing data"
         data_command.add_data_selector(parse_data_selector(rest))
       end
     end
@@ -95,6 +95,10 @@ module Graphick
     end
 
     def parse_selector(rest)
+      if rest.length == 0
+        return EverythingSelector.new
+      end
+
       case rest[0]
       when "column"
         rest.shift

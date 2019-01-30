@@ -12,7 +12,11 @@ module Graphick
 		def cleanup()
 
 		end
-		
+
+		def num_values
+			@values.length
+		end
+
 		def bind_value_index(index)
 			raise 'Bad index' unless index < @values.length
 			@command.bind_param(@parameter_name, @values[value])

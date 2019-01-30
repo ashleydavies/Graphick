@@ -10,7 +10,7 @@ class ColumnSelector
   end
 
   def to_s
-    "Column Selector<#{@column} by '#{@separator}'>"
+    "ColumnSelector<#{@column} by '#{@separator}'>"
   end
 
 end
