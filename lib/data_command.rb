@@ -2,9 +2,11 @@ require 'pp'
 
 module Graphick
   class DataCommand
+    attr_accessor :title
 		
 		def initialize(command_words)
 			@command = command_words.join ' '
+			@title = "Title of Graph"
 			@variables = []
 			@data_selectors = []
 			@output_filters = []

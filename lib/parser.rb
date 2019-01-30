@@ -46,6 +46,8 @@ module Graphick
         data_command.add_filter(parse_filter(rest))
       when 'data'
         data_command.add_data_selector(parse_data_selector(rest))
+      when 'title'
+        data_command.title = rest.join ' '
       end
     end
 

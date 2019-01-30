@@ -10,6 +10,7 @@ The following generates a graph of 1..10 to the corresponding multiple of 6.
 
 ```
 command echo "6 * $num" | bc
+title Multiples of six
 
 varying envvar num sequence 1 to 10
 data output
@@ -33,8 +34,9 @@ and you want to graph the time it takes to generate powers of two, you can use t
 
 ```
 command program
+title Time to generate powers of two
 
-filtering column 1 separator , not in vals 2 4 8 16 32 64
+filtering column 1 separator , in vals 2 4 8 16 32 64
 data output column 1 separator ,
 data output column 2 separator ,
 ```
@@ -43,10 +45,12 @@ data output column 2 separator ,
 More formally, the syntax is as follows
 
 ```
-filtering ::= filtering <selector> <values>
+filtering ::= filtering <selector> <filter>
 varying   ::= varying (envvar VARIABLE_NAME | $variable) <values>
 data      ::= data output <selector>
 
+filter    ::= not <filter>
+            | in <values>
 values    ::= sequence NUMBER to NUMBER
             | vals (VALUE )+
 selector  ::= column NUMBER separator SEPARATOR

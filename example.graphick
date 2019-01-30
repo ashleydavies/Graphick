@@ -1,4 +1,5 @@
 command echo " $example * 2 " | bc
+title Graph of multiples of 2
 
 varying envvar example sequence 1 to 10
 

@@ -13,14 +13,13 @@ module Graphick
 	def self.generate(graphick_str)
 		sources = Graphick::Parser.new(graphick_str).parse()
 		puts sources
-    sources.map(&:acquire_data)
 
 		g = SVG::Graph::Plot.new({
 			:width => 640,
 			:height => 480,
-			:graph_title => 'Test Graph',
+			:graph_title => sources[0].title,
 			:show_graph_title => true,
-			:key => true,
+			:key => sources.length > 1,
 		})
 
 		sources.map(&:acquire_data).each do |data|
