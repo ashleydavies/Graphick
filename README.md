@@ -9,10 +9,48 @@ It has a straightforward DSL for defining data sources and data filters, and cac
 The following generates a graph of 1..10 to the corresponding multiple of 6.
 
 ```
-command echo "6 * $num " | bc
+command echo "6 * $num" | bc
 
-varying $num sequence 1 to 10
-data output all
+varying envvar num sequence 1 to 10
+data output
+```
+
+Every graphick file must have a `command` line. After the word `command` should follow the command that generates the data you are interested in.
+
+Then, you can use a combination of `varying` and `data` directives to define what variables and data your application accepts / outputs, and optionally `filtering` directives to skip certain output lines.
+
+For example, if you had a program that printed comma-separated pairs of ascending numbers along and the time it took to generate them, such as:
+
+```
+1, 0.3
+2, 0.8
+3, 1.6
+4, 6.4
+...
+```
+
+and you want to graph the time it takes to generate powers of two, you can use the following Graphick script:
+
+```
+command program
+
+filtering column 1 separator , not in vals 2 4 8 16 32 64
+data output column 1 separator ,
+data output column 2 separator ,
+```
+
+
+More formally, the syntax is as follows
+
+```
+filtering ::= filtering <selector> <values>
+varying   ::= varying (envvar VARIABLE_NAME | $variable) <values>
+data      ::= data output <selector>
+
+values    ::= sequence NUMBER to NUMBER
+            | vals (VALUE )+
+selector  ::= column NUMBER separator SEPARATOR
+
 ```
 
 ## Installation
