@@ -290,30 +290,30 @@
 <rect x='0' y='0' width='568.8' height='432' class='graphBackground'/>
 <path d='M 0 432 h568.8' class='axis' id='yAxis'/>
 <path d='M 0.0 0 v432' class='axis' id='xAxis'/>
-<text class='xAxisLabels' x='0.0' y='447' style='text-anchor: middle'>0.00</text>
-<text class='xAxisLabels' x='63.199999999999996' y='447' style='text-anchor: middle'>1.00</text>
-<text class='xAxisLabels' x='126.39999999999999' y='447' style='text-anchor: middle'>2.00</text>
-<text class='xAxisLabels' x='189.6' y='447' style='text-anchor: middle'>3.00</text>
-<text class='xAxisLabels' x='252.79999999999998' y='447' style='text-anchor: middle'>4.00</text>
-<text class='xAxisLabels' x='316.0' y='447' style='text-anchor: middle'>5.00</text>
-<text class='xAxisLabels' x='379.2' y='447' style='text-anchor: middle'>6.00</text>
-<text class='xAxisLabels' x='442.4' y='447' style='text-anchor: middle'>7.00</text>
-<text class='xAxisLabels' x='505.59999999999997' y='447' style='text-anchor: middle'>8.00</text>
-<text class='xAxisLabels' x='568.8' y='447' style='text-anchor: middle'>9.00</text>
-<text x='-3' y='436.0' class='yAxisLabels' style='text-anchor: end'>0.00</text>
-<text x='-3' y='382.0' class='yAxisLabels' style='text-anchor: end'>20.00</text>
+<text class='xAxisLabels' x='0.0' y='447' style='text-anchor: middle'>1.00</text>
+<text class='xAxisLabels' x='63.199999999999996' y='447' style='text-anchor: middle'>2.00</text>
+<text class='xAxisLabels' x='126.39999999999999' y='447' style='text-anchor: middle'>3.00</text>
+<text class='xAxisLabels' x='189.6' y='447' style='text-anchor: middle'>4.00</text>
+<text class='xAxisLabels' x='252.79999999999998' y='447' style='text-anchor: middle'>5.00</text>
+<text class='xAxisLabels' x='316.0' y='447' style='text-anchor: middle'>6.00</text>
+<text class='xAxisLabels' x='379.2' y='447' style='text-anchor: middle'>7.00</text>
+<text class='xAxisLabels' x='442.4' y='447' style='text-anchor: middle'>8.00</text>
+<text class='xAxisLabels' x='505.59999999999997' y='447' style='text-anchor: middle'>9.00</text>
+<text class='xAxisLabels' x='568.8' y='447' style='text-anchor: middle'>10.00</text>
+<text x='-3' y='436.0' class='yAxisLabels' style='text-anchor: end'>10.00</text>
+<text x='-3' y='382.0' class='yAxisLabels' style='text-anchor: end'>30.00</text>
 <path d='M0 378.0 h568.8' class='guideLines'/>
-<text x='-3' y='328.0' class='yAxisLabels' style='text-anchor: end'>40.00</text>
+<text x='-3' y='328.0' class='yAxisLabels' style='text-anchor: end'>50.00</text>
 <path d='M0 324.0 h568.8' class='guideLines'/>
-<text x='-3' y='274.0' class='yAxisLabels' style='text-anchor: end'>60.00</text>
+<text x='-3' y='274.0' class='yAxisLabels' style='text-anchor: end'>70.00</text>
 <path d='M0 270.0 h568.8' class='guideLines'/>
-<text x='-3' y='220.0' class='yAxisLabels' style='text-anchor: end'>80.00</text>
+<text x='-3' y='220.0' class='yAxisLabels' style='text-anchor: end'>90.00</text>
 <path d='M0 216.0 h568.8' class='guideLines'/>
-<text x='-3' y='166.0' class='yAxisLabels' style='text-anchor: end'>100.00</text>
+<text x='-3' y='166.0' class='yAxisLabels' style='text-anchor: end'>110.00</text>
 <path d='M0 162.0 h568.8' class='guideLines'/>
-<text x='-3' y='112.0' class='yAxisLabels' style='text-anchor: end'>120.00</text>
+<text x='-3' y='112.0' class='yAxisLabels' style='text-anchor: end'>130.00</text>
 <path d='M0 108.0 h568.8' class='guideLines'/>
-<text x='-3' y='58.0' class='yAxisLabels' style='text-anchor: end'>140.00</text>
+<text x='-3' y='58.0' class='yAxisLabels' style='text-anchor: end'>150.00</text>
 <path d='M0 54.0 h568.8' class='guideLines'/>
 <path d='M0.0 432.0 L0.0 432.0 63.199999999999996 405.0 126.39999999999999 378.0 189.6 351.0 252.79999999999998 324.0 316.0 297.0 379.2 270.0 442.4 243.0 505.59999999999997 216.0 568.8 189.0 ' class='line1'/>
 <circle cx='0.0' cy='432.0' r='2.5' class='dataPoint1'/>
@@ -326,61 +326,61 @@
 <circle cx='442.4' cy='243.0' r='2.5' class='dataPoint1'/>
 <circle cx='505.59999999999997' cy='216.0' r='2.5' class='dataPoint1'/>
 <circle cx='568.8' cy='189.0' r='2.5' class='dataPoint1'/>
-<path d='M0.0 432.0 L0.0 432.0 63.199999999999996 402.3 126.39999999999999 372.6 189.6 342.9 252.79999999999998 313.2 316.0 283.5 379.2 253.8 442.4 224.1 505.59999999999997 194.39999999999998 568.8 164.7 ' class='line2'/>
-<circle cx='0.0' cy='432.0' r='2.5' class='dataPoint2'/>
-<circle cx='63.199999999999996' cy='402.3' r='2.5' class='dataPoint2'/>
-<circle cx='126.39999999999999' cy='372.6' r='2.5' class='dataPoint2'/>
-<circle cx='189.6' cy='342.9' r='2.5' class='dataPoint2'/>
-<circle cx='252.79999999999998' cy='313.2' r='2.5' class='dataPoint2'/>
-<circle cx='316.0' cy='283.5' r='2.5' class='dataPoint2'/>
-<circle cx='379.2' cy='253.8' r='2.5' class='dataPoint2'/>
-<circle cx='442.4' cy='224.1' r='2.5' class='dataPoint2'/>
-<circle cx='505.59999999999997' cy='194.39999999999998' r='2.5' class='dataPoint2'/>
-<circle cx='568.8' cy='164.7' r='2.5' class='dataPoint2'/>
-<path d='M0.0 432.0 L0.0 432.0 63.199999999999996 399.6 126.39999999999999 367.2 189.6 334.8 252.79999999999998 302.4 316.0 270.0 379.2 237.6 442.4 205.2 505.59999999999997 172.8 568.8 140.39999999999998 ' class='line3'/>
-<circle cx='0.0' cy='432.0' r='2.5' class='dataPoint3'/>
-<circle cx='63.199999999999996' cy='399.6' r='2.5' class='dataPoint3'/>
-<circle cx='126.39999999999999' cy='367.2' r='2.5' class='dataPoint3'/>
-<circle cx='189.6' cy='334.8' r='2.5' class='dataPoint3'/>
-<circle cx='252.79999999999998' cy='302.4' r='2.5' class='dataPoint3'/>
-<circle cx='316.0' cy='270.0' r='2.5' class='dataPoint3'/>
-<circle cx='379.2' cy='237.6' r='2.5' class='dataPoint3'/>
-<circle cx='442.4' cy='205.2' r='2.5' class='dataPoint3'/>
-<circle cx='505.59999999999997' cy='172.8' r='2.5' class='dataPoint3'/>
-<circle cx='568.8' cy='140.39999999999998' r='2.5' class='dataPoint3'/>
-<path d='M0.0 432.0 L0.0 432.0 63.199999999999996 396.9 126.39999999999999 361.8 189.6 326.7 252.79999999999998 291.6 316.0 256.5 379.2 221.4 442.4 186.3 505.59999999999997 151.2 568.8 116.10000000000002 ' class='line4'/>
-<circle cx='0.0' cy='432.0' r='2.5' class='dataPoint4'/>
-<circle cx='63.199999999999996' cy='396.9' r='2.5' class='dataPoint4'/>
-<circle cx='126.39999999999999' cy='361.8' r='2.5' class='dataPoint4'/>
-<circle cx='189.6' cy='326.7' r='2.5' class='dataPoint4'/>
-<circle cx='252.79999999999998' cy='291.6' r='2.5' class='dataPoint4'/>
-<circle cx='316.0' cy='256.5' r='2.5' class='dataPoint4'/>
-<circle cx='379.2' cy='221.4' r='2.5' class='dataPoint4'/>
-<circle cx='442.4' cy='186.3' r='2.5' class='dataPoint4'/>
-<circle cx='505.59999999999997' cy='151.2' r='2.5' class='dataPoint4'/>
-<circle cx='568.8' cy='116.10000000000002' r='2.5' class='dataPoint4'/>
-<path d='M0.0 432.0 L0.0 432.0 63.199999999999996 394.2 126.39999999999999 356.4 189.6 318.6 252.79999999999998 280.8 316.0 243.0 379.2 205.2 442.4 167.39999999999998 505.59999999999997 129.60000000000002 568.8 91.80000000000001 ' class='line5'/>
-<circle cx='0.0' cy='432.0' r='2.5' class='dataPoint5'/>
-<circle cx='63.199999999999996' cy='394.2' r='2.5' class='dataPoint5'/>
-<circle cx='126.39999999999999' cy='356.4' r='2.5' class='dataPoint5'/>
-<circle cx='189.6' cy='318.6' r='2.5' class='dataPoint5'/>
-<circle cx='252.79999999999998' cy='280.8' r='2.5' class='dataPoint5'/>
-<circle cx='316.0' cy='243.0' r='2.5' class='dataPoint5'/>
-<circle cx='379.2' cy='205.2' r='2.5' class='dataPoint5'/>
-<circle cx='442.4' cy='167.39999999999998' r='2.5' class='dataPoint5'/>
-<circle cx='505.59999999999997' cy='129.60000000000002' r='2.5' class='dataPoint5'/>
-<circle cx='568.8' cy='91.80000000000001' r='2.5' class='dataPoint5'/>
-<path d='M0.0 432.0 L0.0 432.0 63.199999999999996 391.5 126.39999999999999 351.0 189.6 310.5 252.79999999999998 270.0 316.0 229.5 379.2 189.0 442.4 148.5 505.59999999999997 108.0 568.8 67.5 ' class='line6'/>
-<circle cx='0.0' cy='432.0' r='2.5' class='dataPoint6'/>
-<circle cx='63.199999999999996' cy='391.5' r='2.5' class='dataPoint6'/>
-<circle cx='126.39999999999999' cy='351.0' r='2.5' class='dataPoint6'/>
-<circle cx='189.6' cy='310.5' r='2.5' class='dataPoint6'/>
-<circle cx='252.79999999999998' cy='270.0' r='2.5' class='dataPoint6'/>
-<circle cx='316.0' cy='229.5' r='2.5' class='dataPoint6'/>
-<circle cx='379.2' cy='189.0' r='2.5' class='dataPoint6'/>
-<circle cx='442.4' cy='148.5' r='2.5' class='dataPoint6'/>
-<circle cx='505.59999999999997' cy='108.0' r='2.5' class='dataPoint6'/>
-<circle cx='568.8' cy='67.5' r='2.5' class='dataPoint6'/>
+<path d='M0.0 429.3 L0.0 429.3 63.199999999999996 399.6 126.39999999999999 369.9 189.6 340.2 252.79999999999998 310.5 316.0 280.8 379.2 251.1 442.4 221.4 505.59999999999997 191.7 568.8 162.0 ' class='line2'/>
+<circle cx='0.0' cy='429.3' r='2.5' class='dataPoint2'/>
+<circle cx='63.199999999999996' cy='399.6' r='2.5' class='dataPoint2'/>
+<circle cx='126.39999999999999' cy='369.9' r='2.5' class='dataPoint2'/>
+<circle cx='189.6' cy='340.2' r='2.5' class='dataPoint2'/>
+<circle cx='252.79999999999998' cy='310.5' r='2.5' class='dataPoint2'/>
+<circle cx='316.0' cy='280.8' r='2.5' class='dataPoint2'/>
+<circle cx='379.2' cy='251.1' r='2.5' class='dataPoint2'/>
+<circle cx='442.4' cy='221.4' r='2.5' class='dataPoint2'/>
+<circle cx='505.59999999999997' cy='191.7' r='2.5' class='dataPoint2'/>
+<circle cx='568.8' cy='162.0' r='2.5' class='dataPoint2'/>
+<path d='M0.0 426.6 L0.0 426.6 63.199999999999996 394.2 126.39999999999999 361.8 189.6 329.4 252.79999999999998 297.0 316.0 264.6 379.2 232.2 442.4 199.8 505.59999999999997 167.39999999999998 568.8 135.0 ' class='line3'/>
+<circle cx='0.0' cy='426.6' r='2.5' class='dataPoint3'/>
+<circle cx='63.199999999999996' cy='394.2' r='2.5' class='dataPoint3'/>
+<circle cx='126.39999999999999' cy='361.8' r='2.5' class='dataPoint3'/>
+<circle cx='189.6' cy='329.4' r='2.5' class='dataPoint3'/>
+<circle cx='252.79999999999998' cy='297.0' r='2.5' class='dataPoint3'/>
+<circle cx='316.0' cy='264.6' r='2.5' class='dataPoint3'/>
+<circle cx='379.2' cy='232.2' r='2.5' class='dataPoint3'/>
+<circle cx='442.4' cy='199.8' r='2.5' class='dataPoint3'/>
+<circle cx='505.59999999999997' cy='167.39999999999998' r='2.5' class='dataPoint3'/>
+<circle cx='568.8' cy='135.0' r='2.5' class='dataPoint3'/>
+<path d='M0.0 423.9 L0.0 423.9 63.199999999999996 388.8 126.39999999999999 353.7 189.6 318.6 252.79999999999998 283.5 316.0 248.4 379.2 213.3 442.4 178.2 505.59999999999997 143.10000000000002 568.8 108.0 ' class='line4'/>
+<circle cx='0.0' cy='423.9' r='2.5' class='dataPoint4'/>
+<circle cx='63.199999999999996' cy='388.8' r='2.5' class='dataPoint4'/>
+<circle cx='126.39999999999999' cy='353.7' r='2.5' class='dataPoint4'/>
+<circle cx='189.6' cy='318.6' r='2.5' class='dataPoint4'/>
+<circle cx='252.79999999999998' cy='283.5' r='2.5' class='dataPoint4'/>
+<circle cx='316.0' cy='248.4' r='2.5' class='dataPoint4'/>
+<circle cx='379.2' cy='213.3' r='2.5' class='dataPoint4'/>
+<circle cx='442.4' cy='178.2' r='2.5' class='dataPoint4'/>
+<circle cx='505.59999999999997' cy='143.10000000000002' r='2.5' class='dataPoint4'/>
+<circle cx='568.8' cy='108.0' r='2.5' class='dataPoint4'/>
+<path d='M0.0 421.2 L0.0 421.2 63.199999999999996 383.4 126.39999999999999 345.6 189.6 307.8 252.79999999999998 270.0 316.0 232.2 379.2 194.39999999999998 442.4 156.60000000000002 505.59999999999997 118.80000000000001 568.8 81.0 ' class='line5'/>
+<circle cx='0.0' cy='421.2' r='2.5' class='dataPoint5'/>
+<circle cx='63.199999999999996' cy='383.4' r='2.5' class='dataPoint5'/>
+<circle cx='126.39999999999999' cy='345.6' r='2.5' class='dataPoint5'/>
+<circle cx='189.6' cy='307.8' r='2.5' class='dataPoint5'/>
+<circle cx='252.79999999999998' cy='270.0' r='2.5' class='dataPoint5'/>
+<circle cx='316.0' cy='232.2' r='2.5' class='dataPoint5'/>
+<circle cx='379.2' cy='194.39999999999998' r='2.5' class='dataPoint5'/>
+<circle cx='442.4' cy='156.60000000000002' r='2.5' class='dataPoint5'/>
+<circle cx='505.59999999999997' cy='118.80000000000001' r='2.5' class='dataPoint5'/>
+<circle cx='568.8' cy='81.0' r='2.5' class='dataPoint5'/>
+<path d='M0.0 418.5 L0.0 418.5 63.199999999999996 378.0 126.39999999999999 337.5 189.6 297.0 252.79999999999998 256.5 316.0 216.0 379.2 175.5 442.4 135.0 505.59999999999997 94.5 568.8 54.0 ' class='line6'/>
+<circle cx='0.0' cy='418.5' r='2.5' class='dataPoint6'/>
+<circle cx='63.199999999999996' cy='378.0' r='2.5' class='dataPoint6'/>
+<circle cx='126.39999999999999' cy='337.5' r='2.5' class='dataPoint6'/>
+<circle cx='189.6' cy='297.0' r='2.5' class='dataPoint6'/>
+<circle cx='252.79999999999998' cy='256.5' r='2.5' class='dataPoint6'/>
+<circle cx='316.0' cy='216.0' r='2.5' class='dataPoint6'/>
+<circle cx='379.2' cy='175.5' r='2.5' class='dataPoint6'/>
+<circle cx='442.4' cy='135.0' r='2.5' class='dataPoint6'/>
+<circle cx='505.59999999999997' cy='94.5' r='2.5' class='dataPoint6'/>
+<circle cx='568.8' cy='54.0' r='2.5' class='dataPoint6'/>
 <g/>
 </g>
 <text x='330' y='16' class='mainTitle'>Multiplication Tables</text>

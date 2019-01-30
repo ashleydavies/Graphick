@@ -43,6 +43,37 @@ data output column 1 separator ,
 data output column 2 separator ,
 ```
 
+## Series example
+
+If you have many series of data, and want to be able to contrast it on a graph, you can use the `series` modifier.
+
+If it sees a third `varying` or `data` directive, and it is marked as `series`, Graphick will wrangle your data to produce a graph which has a line for each entry of the corresponding variable. For example, we have a program in `examples/pairwise.rb` which, given a number, outputs the ten times table of that number, e.g.:
+
+```
+examples/pairwise.rb 5
+1,5
+2,10
+3,15
+...
+10,50
+```
+
+Using the following Graphick script:
+
+```
+command ./pairwise.rb $num
+title Multiplication Tables
+
+varying series envvar num sequence 10 to 15
+data output column 1 separator ,
+data output column 2 separator ,
+```
+
+We can generate the following graph:
+
+![Rendering from the above script](examples/pairwise_graph.svg)
+
+## Syntax
 
 More formally, the syntax is as follows
 
@@ -50,8 +81,8 @@ More formally, the syntax is as follows
 command   ::= command COMMAND TO RUN
 title     ::= title TITLE OF GRAPH
 filtering ::= filtering <selector> <filter>
-varying   ::= varying (envvar VARIABLE_NAME | $variable) <values>
-data      ::= data output <selector>
+varying   ::= varying [series] (envvar VARIABLE_NAME | $variable) <values>
+data      ::= data [series] output <selector>
 
 filter    ::= not <filter>
             | in <values>
