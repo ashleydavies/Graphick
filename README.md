@@ -2,7 +2,7 @@
 
 Graphick (a bad play on words of 'graph' and 'quick') is a utility to make generating and maintaining performance analysis graphs for applications much faster.
 
-It has a straightforward DSL for defining data sources and data filters, and caches data and graphs based on the application binary checksum so graphs can be added or changed without regenerating all of the data.
+It has a straightforward DSL for defining data sources and data filters, and will eventually be able to cache data and graphs based on the application binary checksum so graphs can be added or changed without regenerating all of the data.
 
 ## Example
 
