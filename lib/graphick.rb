@@ -41,7 +41,7 @@ module Graphick
         end
       end
 
-      File.open('graph.svg', 'w') {|f| f.write(g.burn_svg_only)}
+      File.open(sources[i].output_path, 'w') {|f| f.write(g.burn_svg_only)}
     end
 
   end
