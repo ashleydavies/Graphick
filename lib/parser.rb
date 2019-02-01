@@ -40,6 +40,11 @@ module Graphick
       data_command = @commands.last
 
       case directive
+      when 'command'
+        if rest.length == 0
+          rest = [data_command.command]
+        end
+        @commands.push DataCommand.new(rest)
       when 'varying'
         data_command.add_variable(parse_variable(rest))
       when 'filtering'

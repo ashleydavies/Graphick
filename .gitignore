@@ -15,3 +15,6 @@ Gemfile.lock
 
 # Random artefacts from running
 *.svg
+
+# Graphic cache
+examples/.graphick_results_cache

@@ -1,7 +1,9 @@
 require 'pp'
+require 'digest'
 
 module Graphick
   class DataCommand
+    attr_reader :command
     attr_accessor :title, :output_path
 
     def initialize(command_words)
@@ -30,7 +32,10 @@ module Graphick
       @data_selectors.push data_selector
     end
 
+    RESULTS_CACHE_DIR = ".graphick_results_cache"
+
     def acquire_data
+      Dir.mkdir RESULTS_CACHE_DIR unless Dir.exists? RESULTS_CACHE_DIR
       puts "Generating data"
 
       # Some basic validation so we know we can actually generate a graph
@@ -45,40 +50,52 @@ module Graphick
 
       results = {}
       # Cartesian product of value options
-      variable_idx_ranges = @variables.map &:num_values
-      variable_idx_ranges.reduce(:*)&.times do |i|
-        # Map i to a value for each parameter (selecting from cartesian product)
-        indexes = []
-        params = []
-        acc = i
-        variable_idx_ranges.each do |varSize|
-          indexes.push acc % varSize
-          acc /= varSize
-        end
 
-        # Bind the appropriate variables
-        @variables.length.times do |idx|
-          params[idx] = @variables[idx].bind_value_index(indexes[idx])
-        end
+      # Filename is a digest of the string representation of the command
+      results_filename = RESULTS_CACHE_DIR + "/" + Digest::SHA2.base64digest(to_s).gsub('/', '£')
 
-        output = `#{@command}`.chomp
-        selections = []
-        output.split(/\n/).each do |line|
-          unless @output_filters.map {|x| x.filter(line)}.all?
-            # Skip line - it didn't meet the filters
-            next
+      if File.exists? results_filename
+        results = Marshal.load(File.binread(results_filename))
+      else
+        variable_idx_ranges = @variables.map &:num_values
+        variable_idx_ranges.reduce(:*)&.times do |i|
+          # Map i to a value for each parameter (selecting from cartesian product)
+          indexes = []
+          params = []
+          acc = i
+          variable_idx_ranges.each do |varSize|
+            indexes.push acc % varSize
+            acc /= varSize
           end
-          selections.push(@data_selectors.map do |selector|
-            res = selector.select(line)
-            if res.include? "."
-              res.to_f
-            else
-              res.to_i
+
+          # Bind the appropriate variables
+          @variables.length.times do |idx|
+            params[idx] = @variables[idx].bind_value_index(indexes[idx])
+          end
+
+          output = `#{@command}`.chomp
+          selections = []
+          output.split(/\n/).each do |line|
+            unless @output_filters.map {|x| x.filter(line)}.all?
+              # Skip line - it didn't meet the filters
+              next
             end
-          end)
+            selections.push(@data_selectors.map do |selector|
+              res = selector.select(line)
+              if res.include? "."
+                res.to_f
+              else
+                res.to_i
+              end
+            end)
+          end
+
+          @variables.each &:cleanup
+
+          results[params] = selections
         end
 
-        results[params] = selections
+        File.open(results_filename, 'wb+') { |f| f.write(Marshal.dump(results)) }
       end
 
       # Varying series on output is tricky as it requires a wrangling of the data structure

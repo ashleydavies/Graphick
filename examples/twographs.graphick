@@ -1,0 +1,25 @@
+command ./pairwise.rb $num
+output twographs-one.svg
+varying series envvar num sequence 1 to 10
+
+data output column 1 separator ,
+data output column 2 separator ,
+
+# Demos that environment variables are correctly reset after the drawing of the first graph
+#   -- this generates 11 to 20 not 1011 to 1020 (which would be the case if `$num` retained its final value from before)
+command ./pairwise.rb $num$num2
+output twographs-two.svg
+varying series envvar num2 sequence 11 to 20
+
+data output column 1 separator ,
+data output column 2 separator ,
+
+# Plot twist: a third graph
+# If you omit the command, Graphick assumes you're using the same command as the immediate predecessor
+#   i.e., here: `pairwise.rb $num$num2`
+command
+output twographs-three.svg
+varying series envvar num2 sequence 21 to 30
+
+data output column 1 separator ,
+data output column 2 separator ,
