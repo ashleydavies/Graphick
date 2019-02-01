@@ -2,7 +2,7 @@
 
 Graphick (a bad play on words of 'graph' and 'quick') is a utility to make generating and maintaining performance analysis graphs for applications much faster.
 
-It has a straightforward DSL for defining data sources and data filters, and will eventually be able to cache data and graphs based on the application binary checksum so graphs can be added or changed without regenerating all of the data.
+It has a straightforward DSL for defining data sources and data filters, and caches data and graphs based on the command and parameters so graphs can be added or changed without regenerating all of the graphs specified in the file.
 
 ## Example
 
@@ -80,6 +80,9 @@ More formally, the syntax is as follows
 ```
 command   ::= command COMMAND TO RUN
 title     ::= title TITLE OF GRAPH
+x_label   ::= x_label X AXIS LABEL
+y_label   ::= y_label Y AXIS LABEL
+output    ::= output GRAPH OUTPUT FILE NAME
 filtering ::= filtering <selector> <filter>
 varying   ::= varying [series] (envvar VARIABLE_NAME | $variable) <values>
 data      ::= data [series] output <selector>

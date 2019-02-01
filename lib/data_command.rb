@@ -4,7 +4,7 @@ require 'digest'
 module Graphick
   class DataCommand
     attr_reader :command
-    attr_accessor :title, :output_path
+    attr_accessor :title, :output_path, :x_label, :y_label
 
     def initialize(command_words)
       @command = command_words.join ' '
@@ -116,16 +116,19 @@ module Graphick
             :results => results,
             :suggested_x_scale => suggest_axis_scale(allXValues),
             :suggested_y_scale => suggest_axis_scale(allYValues),
+            :x_label => x_label,
+            :y_label => y_label
         }
       end
 
-      # Now wrangle the results into the correct format for rendering a graph, depending on if a series is defined
-      # TODO: Support series
+      # TODO: Merge duplication with the series handling; handle flipped X/Y axis
       {
           :series => false,
           :results => [results.flatten.flatten],
           :suggested_x_scale => suggest_axis_scale(results.keys.map {|x| x[0]}),
-          :suggested_y_scale => suggest_axis_scale(results.values.map {|x| x[0]}.flatten)
+          :suggested_y_scale => suggest_axis_scale(results.values.map {|x| x[0]}.flatten),
+          :x_label => x_label,
+          :y_label => y_label
       }
     end
 

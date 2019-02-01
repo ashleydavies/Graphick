@@ -1,5 +1,10 @@
 command ./pairwise.rb $num
 output twographs-one.svg
+
+title Graph One of TwoGraphs, 1-10 times tables
+x_label x
+y_label y
+
 varying series envvar num sequence 1 to 10
 
 data output column 1 separator ,
