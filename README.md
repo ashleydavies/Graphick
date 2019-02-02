@@ -73,25 +73,51 @@ We can generate the following graph:
 
 ![Rendering from the above script](examples/pairwise_graph.svg)
 
+## Arbitrary post-processing
+
+Sometimes the resultant data from variables and program output is insufficient to generate the desired graphs.
+
+Graphick supports post-processing the data, so it can be re-written in terms of itself.
+
+Currently, only the y-axis can be post-processed but adding support for the x-axis and series should be trivial (PRs welcome).
+
+This is done using the `postprocess_y` directive:
+
+```
+command example
+
+varying series ...
+
+# x, y and s (series / data group / line) are automatically defined
+# y = x + y + s
+postprocess_y x + y + s
+
+# x axis
+data ...
+# y axis
+data ...
+```
+
 ## Syntax
 
 More formally, the syntax is as follows
 
 ```
-command   ::= command COMMAND TO RUN
-title     ::= title TITLE OF GRAPH
-x_label   ::= x_label X AXIS LABEL
-y_label   ::= y_label Y AXIS LABEL
-output    ::= output GRAPH OUTPUT FILE NAME
-filtering ::= filtering <selector> <filter>
-varying   ::= varying [series] (envvar VARIABLE_NAME | $variable) <values>
-data      ::= data [series] output <selector>
+command       ::= command COMMAND TO RUN
+title         ::= title TITLE OF GRAPH
+x_label       ::= x_label X AXIS LABEL
+y_label       ::= y_label Y AXIS LABEL
+output        ::= output GRAPH OUTPUT FILE NAME
+filtering     ::= filtering <selector> <filter>
+varying       ::= varying [series] (envvar VARIABLE_NAME | $variable) <values>
+data          ::= data [series] output <selector>
+postprocess_y ::= ARBITRARY RUBY CODE
 
-filter    ::= not <filter>
-            | in <values>
-values    ::= sequence NUMBER to NUMBER
-            | vals (VALUE )+
-selector  ::= column NUMBER separator SEPARATOR
+filter        ::= not <filter>
+                | in <values>
+values        ::= sequence NUMBER to NUMBER
+                | vals (VALUE )+
+selector      ::= column NUMBER separator SEPARATOR
 ```
 
 ## Installation
