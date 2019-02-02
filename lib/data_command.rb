@@ -82,7 +82,8 @@ module Graphick
             end
             selections.push(@data_selectors.map do |selector|
               res = selector.select(line)
-              if res.include? "."
+              # Tricky bug: "5e-05" was being parsed as an integer without the "e-" check
+              if res.include? "." or res.include? "e-"
                 res.to_f
               else
                 res.to_i
