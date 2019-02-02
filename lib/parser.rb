@@ -57,6 +57,8 @@ module Graphick
         data_command.x_label = rest.join ' '
       when 'y_label'
         data_command.y_label = rest.join ' '
+      when 'postprocess_y'
+        data_command.postprocess_y = rest.join ' '
       when 'output'
         data_command.output_path = rest.join ' '
       end

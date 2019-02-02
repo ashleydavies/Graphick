@@ -4,7 +4,7 @@ require 'digest'
 module Graphick
   class DataCommand
     attr_reader :command
-    attr_accessor :title, :output_path, :x_label, :y_label
+    attr_accessor :title, :output_path, :x_label, :y_label, :postprocess_y
 
     def initialize(command_words)
       @command = command_words.join ' '
@@ -108,6 +108,16 @@ module Graphick
         }.flatten(1).group_by {|x| x[seriesIdx]}.map {|k, v| v.map {|x| x.delete_at seriesIdx}; [k, v]}.to_h
         pp results
 
+        # Ugly hack to enable postprocessing of data
+        unless :postprocess_y.nil?
+          results.each do |k,v|
+            results[k] = v.map do |v|
+              puts "s = #{k}; x = #{v[0]}; y = #{v[1]}; #{postprocess_y}"
+              [v[0], eval("s = #{k}; x = #{v[0]}; y = #{v[1]}; #{postprocess_y}")]
+            end
+          end
+        end
+
         # Simple case: x,y data pairs with a series variable
         allXValues = results.values.flatten(1).map {|e| e[0]}
         allYValues = results.values.flatten(1).map {|e| e[1]}
@@ -120,6 +130,11 @@ module Graphick
             :x_label => x_label,
             :y_label => y_label
         }
+      end
+
+      # TODO: Fix
+      unless postprocess_y.nil?
+        raise 'Postprocessing of y values is currently only supported for series data'
       end
 
       # TODO: Merge duplication with the series handling; handle flipped X/Y axis
