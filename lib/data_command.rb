@@ -4,11 +4,12 @@ require 'digest'
 module Graphick
   class DataCommand
     attr_reader :command
-    attr_accessor :title, :output_path, :x_label, :y_label, :postprocess_y
+    attr_accessor :title, :output_path, :x_label, :y_label, :series_label, :postprocess_y
 
     def initialize(command_words)
       @command = command_words.join ' '
       @title = "Title of Graph"
+      @series_label = '%s'
       @output_path = "graph.svg"
       @variables = []
       @data_selectors = []
@@ -41,12 +42,10 @@ module Graphick
       # Some basic validation so we know we can actually generate a graph
       data_sources = @variables + @data_selectors
       puts "Data sources: #{data_sources.length} (#{@variables.length} variables, #{@data_selectors.length} data sources)"
-      raise 'Bad number of data sources ' unless [2, 3].include? data_sources.length
-
+      # Check that there is only 2 data sources besides series data (i.e. X/Y)
       series_count = data_sources.map(&:is_series).select(&:itself).length
-
-      raise 'Expected a single `series` data source, since three data sources were given' if data_sources.length == 3 unless series_count == 1
-      raise 'Expected no `series` data source, since only one other data source is present' if data_sources.length == 2 unless series_count == 0
+      raise 'Bad number of data sources ' unless data_sources.length - series_count == 2
+      puts "Series data sources: #{series_count}"
 
       results = {}
       # Cartesian product of value options
@@ -102,17 +101,20 @@ module Graphick
       # Varying series on output is tricky as it requires a wrangling of the data structure
       if series_count > 0
         # Mutate data into tuples so we can stretch it back into a nice form
-        seriesIdx = data_sources.map(&:is_series).index true
+        series_idxs = data_sources.each_index.select {|i| data_sources[i].is_series}
+        seriesIdx = series_idxs[0]
         results = results.each_pair.map {|k, v|
           v.map {|a| k + a}
-        }.flatten(1).group_by {|x| x[seriesIdx]}.map {|k, v| v.map {|x| x.delete_at seriesIdx}; [k, v]}.to_h
+        }.flatten(1)
+                      .group_by {|x| series_idxs.map {|idx| x[idx]}}
+                      .map {|k, v| [k, v.map {|l| l.reject.with_index {|e, i| series_idxs.include? i}}]}
+                      .to_h
+
         pp results
 
-        # Ugly hack to enable postprocessing of data
         unless :postprocess_y.nil?
           results.each do |k,v|
             results[k] = v.map do |v|
-              puts "s = #{k}; x = #{v[0]}; y = #{v[1]}; #{postprocess_y}"
               [v[0], eval("s = #{k}; x = #{v[0]}; y = #{v[1]}; #{postprocess_y}")]
             end
           end
@@ -128,7 +130,8 @@ module Graphick
             :suggested_x_scale => suggest_axis_scale(allXValues),
             :suggested_y_scale => suggest_axis_scale(allYValues),
             :x_label => x_label,
-            :y_label => y_label
+            :y_label => y_label,
+            :series_label => series_label
         }
       end
 
@@ -209,7 +212,10 @@ module Graphick
         # TODO: Try to select an appropriate candidate_array
       end
 
-      # TODO: Choose a good candidate_arrays - currently this whole thing is pointless
+      # Minimise the number of numbers on display
+      # Surprisingly not a terrible heuristic. 2 * length of all digits - length of non-zero digits
+      # Maximises zeroes (so we end up with e.g. 10 20 30 not 11 22 33) and minimises length so we don't have extraneous labels
+      candidate_arrays = candidate_arrays.sort_by { |a| l = a.map(&:to_s).map(&:length).inject(:+); l + l - a.map(&:to_s).map {|v| v.count('0')}.inject(:+) }
       candidate_arrays[0][1] - candidate_arrays[0][0]
     end
 

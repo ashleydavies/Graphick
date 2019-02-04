@@ -20,6 +20,7 @@ module Graphick
       g = SVG::Graph::Plot.new({
                                    :width => 660,
                                    :height => 480,
+                                   :number_format => '%.2f',
                                    :graph_title => sources[i].title,
                                    :show_graph_title => true,
                                    :key => data[:results].length > 1,
@@ -27,6 +28,8 @@ module Graphick
                                    :show_y_title => (not data[:y_label].nil?),
                                    :x_title => data[:x_label],
                                    :y_title => data[:y_label],
+                                   :min_x_value => 0,
+                                   :min_y_value => 0,
                                    :scale_x_integers => true,
                                    :scale_x_divisions => data[:suggested_x_scale],
                                    :scale_y_divisions => data[:suggested_y_scale],
@@ -38,7 +41,7 @@ module Graphick
         if data[:series]
           g.add_data({
                          :data => results[1],
-                         :title => results[0].to_s
+                         :title => data[:series_label] % results[0]
                      })
         else
           g.add_data({:data => results})

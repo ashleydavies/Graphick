@@ -57,6 +57,8 @@ module Graphick
         data_command.x_label = rest.join ' '
       when 'y_label'
         data_command.y_label = rest.join ' '
+      when 'series_label'
+        data_command.series_label = rest.join ' '
       when 'postprocess_y'
         data_command.postprocess_y = rest.join ' '
       when 'output'
@@ -140,7 +142,15 @@ module Graphick
         # TODO: Allow floats?
         return (startVal.to_i..endVal.to_i).to_a
       when "vals"
-        return collection
+        # If all vals are numbers, process them into numbers; otherwise treat them as strings
+        return collection unless collection.all? { |v| v.match /^-?[0-9]*\.?[0-9]*(e-?[0-9]+)?$/ }
+        return collection.map do |v|
+          if v.include? "." or v.include? "e-"
+            v.to_f
+          else
+            v.to_i
+          end
+        end
       else
         raise 'Parsing failed: unexpected token when parsing values'
       end

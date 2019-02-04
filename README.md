@@ -107,6 +107,7 @@ command       ::= command COMMAND TO RUN
 title         ::= title TITLE OF GRAPH
 x_label       ::= x_label X AXIS LABEL
 y_label       ::= y_label Y AXIS LABEL
+series_label  ::= series_label SERIES LABEL (FORMAT STRING)
 output        ::= output GRAPH OUTPUT FILE NAME
 filtering     ::= filtering <selector> <filter>
 varying       ::= varying [series] (envvar VARIABLE_NAME | $variable) <values>
