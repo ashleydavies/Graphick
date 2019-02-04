@@ -102,11 +102,9 @@ module Graphick
       if series_count > 0
         # Mutate data into tuples so we can stretch it back into a nice form
         series_idxs = data_sources.each_index.select {|i| data_sources[i].is_series}
-        seriesIdx = series_idxs[0]
         results = results.each_pair.map {|k, v|
           v.map {|a| k + a}
-        }.flatten(1)
-                      .group_by {|x| series_idxs.map {|idx| x[idx]}}
+        }.flatten(1).group_by {|x| series_idxs.map {|idx| x[idx]}}
                       .map {|k, v| [k, v.map {|l| l.reject.with_index {|e, i| series_idxs.include? i}}]}
                       .to_h
 
